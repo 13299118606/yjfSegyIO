@@ -20,6 +20,7 @@ module yjfSegyIO
     include("types/SeisBlock.jl")
     include("types/BlockScan.jl")
     include("types/SeisCon.jl")
+    include("types/Float32.jl")
 
     #Reader
     include("read/read_fileheader.jl")

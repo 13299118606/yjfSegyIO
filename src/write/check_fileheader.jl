@@ -17,7 +17,7 @@ function check_fileheader(s::IO, fh_new::FileHeader)
     # Check first section of assigned values
 
     for field in fieldnames(typeof(fh.bfh))[1:end]
-        if(getfield(fh.bfh, field) != getfield(fh_new.bfh, field)) @error "The existing fileheaders are different from the new SeisBlock" end
+        if(getfield(fh.bfh, field) != getfield(fh_new.bfh, field)) @error "The existing fileheaders are different from the new SeisBlock,请检查这个文件头字段",field,"旧:",getfield(fh.bfh, field),"新:",getfield(fh_new.bfh, field) end
     end
     
 end

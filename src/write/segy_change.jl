@@ -16,7 +16,7 @@ function segy_change(file::String, block::SeisBlock,indexs::AbstractVector )
     # 寻找相应的道头index，通过index来寻找就行
     # 
 
-    ll=int(ntraces/20)
+    ll=floor(ntraces/20)
 
     for t in 1:ntraces
         if ntraces<=10
