@@ -1,6 +1,6 @@
 export segy_change
 
-function segy_change(file::String, block::SeisBlock，indexs::AbstractVector )
+function segy_change(file::String, block::SeisBlock,indexs::AbstractVector )
 
     # Open buffer for writing
     s = open(file, "r+")
