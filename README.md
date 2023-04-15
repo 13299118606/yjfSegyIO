@@ -6,7 +6,8 @@ julia有着高效的速度，在很多自定义情况下比pyhton和matlab快非
 
 里面有很多没删除的注释，没时间整理
 
-主要增添的很必要的功能
+主要增添的很必要的功能：
+
     1.写IBMFloat 格式的sgy
 
     2.读取地震道数按index，而且加速读取，非逐道
@@ -17,6 +18,8 @@ julia有着高效的速度，在很多自定义情况下比pyhton和matlab快非
 
     4.按道改写
         segy_change(outsgyname, block, index3) # 改写相应道的数据
+
+可以根据此改进实现的功能：不用整体读入，可以按道进行读取和改写sgy，也可一次读取自己设定大小sgy，并进行改写。
 
 ## INSTALLATION
 
