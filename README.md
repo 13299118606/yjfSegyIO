@@ -1,19 +1,29 @@
-# SegyIO.jl
+# yjfSegyIO.jl
 
-SegyIO is a Julia package for reading and writing SEGY Rev 1 files. In addition to providing tools for reading/writing entire files, SegyIO provides a parallel scanner that reduces any number of files into a single object with direct out-of-core access to the underlying data. 
+julia有着高效的速度，在很多自定义情况下比pyhton和matlab快非常多，地球物理sgy包并不多，且功能不全，我分享出我的sgyio包，为大家接触julia地球物理添砖加瓦！
 
-[![Build Status](https://github.com/slimgroup/SegyIO.jl/workflows/CI-tests/badge.svg)](https://github.com/slimgroup/SegyIO.jl/actions?query=workflow%3ACI-tests)
+这个包是根据https://github.com/slimgroup/SegyIO.jl 包修改而来，没有向原作者提交，如果有人有时间将包里注释改成英文，再提交给原作者
 
-A video demonstrating the package's capabilities [has been made available here.](https://www.youtube.com/watch?v=tx530QOPeZo&feature=youtu.be)
+里面有很多没删除的注释，没时间整理
+
+主要增添的很必要的功能
+    1.写IBMFloat 格式的sgy
+
+    2.读取地震道数按index，而且加速读取，非逐道
+        indexes=[1,4,8,12]
+        block = segy_read(orig,indexs,n1)   
+
+    3.增添Float32(seisblock)类型转化
+
+    4.按道改写
+        segy_change(outsgyname, block, index3) # 改写相应道的数据
 
 ## INSTALLATION
 
 SegyIO is a registered package and can be installed directly from the julia package manager (`]` in the julia REPL) :
 
 ```
- add SegyIO
+ add https://github.com/13299118606/yjfSegyIO.git
 ```
 
 ## Extension
-
-SegyIO is implemented for POSIX systems. For Cloud storage, use [CloudSegyIO.jl](https://github.com/slimgroup/CloudSegyIO.jl), the Cloud storage extension of SegyIO.
