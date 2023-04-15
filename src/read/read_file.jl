@@ -39,6 +39,7 @@ function read_file(s::IO, keys::Array{String, 1}, warn_user::Bool;
 
     # Read traces
     trace_size = (240 + fh.bfh.ns*4)
+    
     ntraces = Int((end_byte - start_byte)/trace_size)
 
     # Preallocate memory

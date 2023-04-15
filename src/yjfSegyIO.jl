@@ -11,8 +11,12 @@ module yjfSegyIO
     # what's being used
     using Distributed
     using Printf
-
+    using GR
+    
+    # 自己添加
+    include("methods/split_continuous.jl")
     #Types
+    
     include("types/IBMFloat32.jl")
     include("types/BinaryFileHeader.jl")
     include("types/BinaryTraceHeader.jl")
@@ -62,5 +66,6 @@ module yjfSegyIO
     include("methods/set_header.jl")
     include("methods/get_header.jl")
     include("methods/get_sources.jl")
+    include("methods/get_box_indexs.jl")
 
 end # module

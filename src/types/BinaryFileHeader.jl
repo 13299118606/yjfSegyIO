@@ -1,5 +1,5 @@
 import Base.show
-
+import Base.copy
 export BinaryFileHeader, fh_byte2sample, show
 
 mutable struct BinaryFileHeader
@@ -90,3 +90,4 @@ function show(io::IO, bfh::BinaryFileHeader)
     end
     println("\n")
 end
+

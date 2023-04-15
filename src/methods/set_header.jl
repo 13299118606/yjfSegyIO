@@ -78,3 +78,45 @@ function set_header!(block::SeisBlock, name_in::Union{Symbol, String},
     end
 end
 
+function copy(bfh::BinaryFileHeader)
+    newbfh=BinaryFileHeader()
+set_fileheader!(newbfh, :Job,bfh. Job)
+set_fileheader!(newbfh, :Line,bfh. Line)
+set_fileheader!(newbfh, :Reel,bfh. Reel)
+set_fileheader!(newbfh, :DataTracePerEnsemble,bfh. DataTracePerEnsemble)
+set_fileheader!(newbfh, :AuxiliaryTracePerEnsemble,bfh. AuxiliaryTracePerEnsemble)
+set_fileheader!(newbfh, :dt,bfh. dt)
+set_fileheader!(newbfh, :dtOrig,bfh. dtOrig)
+set_fileheader!(newbfh, :ns,bfh. ns)
+set_fileheader!(newbfh, :nsOrig,bfh. nsOrig)
+set_fileheader!(newbfh, :DataSampleFormat,bfh. DataSampleFormat)
+set_fileheader!(newbfh, :EnsembleFold,bfh. EnsembleFold)
+set_fileheader!(newbfh, :TraceSorting,bfh. TraceSorting)
+set_fileheader!(newbfh, :VerticalSumCode,bfh. VerticalSumCode)
+set_fileheader!(newbfh, :SweepFrequencyStart,bfh. SweepFrequencyStart)
+set_fileheader!(newbfh, :SweepFrequencyEnd,bfh. SweepFrequencyEnd)
+set_fileheader!(newbfh, :SweepLength,bfh. SweepLength)
+set_fileheader!(newbfh, :SweepType,bfh. SweepType)
+set_fileheader!(newbfh, :SweepChannel,bfh. SweepChannel)
+set_fileheader!(newbfh, :SweepTaperlengthStart,bfh. SweepTaperlengthStart)
+set_fileheader!(newbfh, :SweepTaperLengthEnd,bfh. SweepTaperLengthEnd)
+set_fileheader!(newbfh, :TaperType,bfh. TaperType)
+set_fileheader!(newbfh, :CorrelatedDataTraces,bfh. CorrelatedDataTraces)
+set_fileheader!(newbfh, :BinaryGain,bfh. BinaryGain)
+set_fileheader!(newbfh, :AmplitudeRecoveryMethod,bfh. AmplitudeRecoveryMethod)
+set_fileheader!(newbfh, :MeasurementSystem,bfh. MeasurementSystem)
+set_fileheader!(newbfh, :ImpulseSignalPolarity,bfh. ImpulseSignalPolarity)
+set_fileheader!(newbfh, :VibratoryPolarityCode,bfh. VibratoryPolarityCode)
+set_fileheader!(newbfh, :SegyFormatRevisionNumber,bfh. SegyFormatRevisionNumber)
+set_fileheader!(newbfh, :FixedLengthTraceFlag,bfh. FixedLengthTraceFlag)
+set_fileheader!(newbfh, :NumberOfExtTextualHeaders,bfh. NumberOfExtTextualHeaders)
+    return newbfh
+end
+
+function copy(fhd::FileHeader)
+    newfhd=FileHeader()
+    a=fhd.th
+    newfhd.th="$a"
+    newfhd.bfh=copy(fhd.bfh)
+    return newfhd
+end

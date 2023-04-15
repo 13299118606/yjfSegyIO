@@ -6,7 +6,7 @@ function check_fileheader(s::IO, fh_new::FileHeader)
     if sizeof(fh_new.th) > 3200 @error "Text Header longer than 3200 bytes" end
 
     # Check dsf
-    if fh_new.bfh.DataSampleFormat != 5 
+    if fh_new.bfh.DataSampleFormat != 5 && fh_new.bfh.DataSampleFormat != 1
         @warn "DataSampleFormat not supported for writing. Attempting to convert to IEEE Float32"
         fh_new.bfh.DataSampleFormat = 5
     end
